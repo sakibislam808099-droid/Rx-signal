@@ -176,6 +176,7 @@
             border-bottom: 2px solid rgba(52, 211, 153, 0.3);
             flex-shrink: 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            height: 50px;
         }
 
         .app-header-title {
@@ -207,7 +208,7 @@
 
         /* --- PAGES CONTENT CONTAINER --- */
         .page-content {
-            flex-grow: 1;
+            flex: 1;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -237,10 +238,10 @@
 
         /* --- DASHBOARD SECTION --- */
         .dashboard {
-            padding: 14px;
+            padding: 10px 14px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
@@ -248,8 +249,8 @@
             background: rgba(15, 23, 42, 0.9);
             border: 2px solid;
             animation: borderRainbow 4s infinite linear;
-            border-radius: 14px;
-            padding: 12px 18px;
+            border-radius: 12px;
+            padding: 8px 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -257,7 +258,7 @@
 
         .timer-info span {
             display: block;
-            font-size: 10px;
+            font-size: 9px;
             color: #94a3b8;
             text-transform: uppercase;
             font-weight: 800;
@@ -265,28 +266,28 @@
         }
 
         .timer-info strong {
-            font-size: 15px;
+            font-size: 14px;
             color: #f8fafc;
             font-weight: 900;
         }
 
         .timer-display {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 900;
             color: #f59e0b;
             background: rgba(245, 158, 11, 0.12);
-            padding: 6px 14px;
-            border-radius: 10px;
+            padding: 4px 12px;
+            border-radius: 8px;
             border: 1.5px solid rgba(245, 158, 11, 0.4);
-            box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
         }
 
         .signal-container {
             background: rgba(10, 15, 28, 0.95);
             border: 2px solid;
             animation: borderRainbow 4s infinite linear;
-            border-radius: 16px;
-            padding: 14px;
+            border-radius: 14px;
+            padding: 10px 14px;
             text-align: center;
         }
 
@@ -294,17 +295,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .period-circle {
             background: linear-gradient(135deg, #059669, #047857);
             color: #fff;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
-            padding: 6px 18px;
+            padding: 4px 14px;
             border-radius: 20px;
-            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
             border: 1.5px solid rgba(52, 211, 153, 0.4);
             letter-spacing: 1px;
         }
@@ -312,33 +313,33 @@
         .signal-boxes-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
+            gap: 8px;
         }
 
         .sig-box {
             background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(6, 13, 26, 0.95));
             border: 2px solid;
             animation: borderRainbow 4s infinite linear;
-            border-radius: 14px;
-            padding: 18px 8px;
+            border-radius: 12px;
+            padding: 12px 6px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: inset 0 0 12px rgba(16, 185, 129, 0.15);
+            box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.15);
         }
 
         .sig-label {
-            font-size: 11px;
+            font-size: 10px;
             color: #94a3b8;
             text-transform: uppercase;
             font-weight: 800;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             letter-spacing: 1px;
         }
 
         .sig-value {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 900;
             text-transform: uppercase;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
@@ -348,37 +349,40 @@
         .history-section {
             background: rgba(3, 7, 18, 0.98);
             border-top: 2px solid rgba(16, 185, 129, 0.3);
-            padding: 12px 14px;
-            flex-grow: 1;
+            padding: 10px 14px;
+            flex: 1;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            min-height: 0;
         }
 
         .history-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: #34d399;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 6px;
+            flex-shrink: 0;
         }
 
         .history-title::before {
             content: '';
             display: inline-block;
-            width: 7px; height: 7px;
+            width: 6px; height: 6px;
             background: #10b981;
             border-radius: 50%;
             box-shadow: 0 0 8px #10b981;
         }
 
         .table-container {
-            flex-grow: 1;
+            flex: 1;
             overflow-y: auto;
+            min-height: 0;
         }
 
         table {
@@ -390,7 +394,7 @@
 
         th {
             color: #94a3b8;
-            padding-bottom: 8px;
+            padding-bottom: 6px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
             font-weight: 800;
             text-transform: uppercase;
@@ -401,7 +405,7 @@
         }
 
         td {
-            padding: 10px 4px;
+            padding: 8px 4px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-weight: 700;
         }
@@ -410,7 +414,7 @@
             color: #4ade80;
             font-weight: 900;
             background: rgba(74, 222, 128, 0.18);
-            padding: 3px 10px;
+            padding: 2px 8px;
             border-radius: 6px;
             display: inline-block;
             border: 1px solid rgba(74, 222, 128, 0.4);
@@ -420,7 +424,7 @@
             color: #f87171;
             font-weight: 900;
             background: rgba(248, 113, 113, 0.18);
-            padding: 3px 10px;
+            padding: 2px 8px;
             border-radius: 6px;
             display: inline-block;
             border: 1px solid rgba(248, 113, 113, 0.4);
@@ -557,7 +561,7 @@
         <!-- App Header -->
         <div class="app-header">
             <div class="app-header-title">RX SIGNAL HACK</div>
-            <a href="t.me/RS_GAMING_RAKIB_OWNER" target="_blank" class="telegram-btn" title="Join Telegram Channel">
+            <a href="https://t.me/RS_GAMING_RAKIB_OWNER" target="_blank" class="telegram-btn" title="Join Telegram Channel">
                 <i class="fab fa-telegram-plane"></i>
             </a>
         </div>
@@ -1033,4 +1037,4 @@
         }
     </script>
 </body>
-                                </html>
+</html>
