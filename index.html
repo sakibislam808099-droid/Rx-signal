@@ -21,7 +21,7 @@
 
         html, body {
             width: 100vw;
-            height: 100dvh;
+            height: 100vh;
             background: #020617;
             color: #ffffff;
             overflow: hidden;
@@ -36,7 +36,7 @@
 
         .app-container {
             width: 100vw;
-            height: 100dvh;
+            height: 100vh;
             background: #050b14;
             display: flex;
             flex-direction: column;
@@ -176,7 +176,6 @@
             border-bottom: 2px solid rgba(52, 211, 153, 0.3);
             flex-shrink: 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            height: 50px;
         }
 
         .app-header-title {
@@ -208,12 +207,11 @@
 
         /* --- PAGES CONTENT CONTAINER --- */
         .page-content {
-            flex: 1;
+            flex-grow: 1;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            min-height: 0;
         }
 
         .tab-pane {
@@ -239,10 +237,10 @@
 
         /* --- DASHBOARD SECTION --- */
         .dashboard {
-            padding: 10px 14px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
             flex-shrink: 0;
         }
 
@@ -250,8 +248,8 @@
             background: rgba(15, 23, 42, 0.9);
             border: 2px solid;
             animation: borderRainbow 4s infinite linear;
-            border-radius: 12px;
-            padding: 8px 14px;
+            border-radius: 14px;
+            padding: 12px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -259,7 +257,7 @@
 
         .timer-info span {
             display: block;
-            font-size: 9px;
+            font-size: 10px;
             color: #94a3b8;
             text-transform: uppercase;
             font-weight: 800;
@@ -267,28 +265,28 @@
         }
 
         .timer-info strong {
-            font-size: 14px;
+            font-size: 15px;
             color: #f8fafc;
             font-weight: 900;
         }
 
         .timer-display {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 900;
             color: #f59e0b;
             background: rgba(245, 158, 11, 0.12);
-            padding: 4px 12px;
-            border-radius: 8px;
+            padding: 6px 14px;
+            border-radius: 10px;
             border: 1.5px solid rgba(245, 158, 11, 0.4);
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
         }
 
         .signal-container {
             background: rgba(10, 15, 28, 0.95);
             border: 2px solid;
             animation: borderRainbow 4s infinite linear;
-            border-radius: 14px;
-            padding: 10px 14px;
+            border-radius: 16px;
+            padding: 14px;
             text-align: center;
         }
 
@@ -296,17 +294,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
         }
 
         .period-circle {
             background: linear-gradient(135deg, #059669, #047857);
             color: #fff;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 800;
-            padding: 4px 14px;
+            padding: 6px 18px;
             border-radius: 20px;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
             border: 1.5px solid rgba(52, 211, 153, 0.4);
             letter-spacing: 1px;
         }
@@ -314,33 +312,33 @@
         .signal-boxes-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
+            gap: 10px;
         }
 
         .sig-box {
             background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(6, 13, 26, 0.95));
             border: 2px solid;
             animation: borderRainbow 4s infinite linear;
-            border-radius: 12px;
-            padding: 12px 6px;
+            border-radius: 14px;
+            padding: 18px 8px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.15);
+            box-shadow: inset 0 0 12px rgba(16, 185, 129, 0.15);
         }
 
         .sig-label {
-            font-size: 10px;
+            font-size: 11px;
             color: #94a3b8;
             text-transform: uppercase;
             font-weight: 800;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             letter-spacing: 1px;
         }
 
         .sig-value {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 900;
             text-transform: uppercase;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
@@ -350,40 +348,37 @@
         .history-section {
             background: rgba(3, 7, 18, 0.98);
             border-top: 2px solid rgba(16, 185, 129, 0.3);
-            padding: 10px 14px;
-            flex: 1;
+            padding: 12px 14px;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            min-height: 0;
         }
 
         .history-title {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 800;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             color: #34d399;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 6px;
-            flex-shrink: 0;
         }
 
         .history-title::before {
             content: '';
             display: inline-block;
-            width: 6px; height: 6px;
+            width: 7px; height: 7px;
             background: #10b981;
             border-radius: 50%;
             box-shadow: 0 0 8px #10b981;
         }
 
         .table-container {
-            flex: 1;
+            flex-grow: 1;
             overflow-y: auto;
-            min-height: 0;
         }
 
         table {
@@ -395,7 +390,7 @@
 
         th {
             color: #94a3b8;
-            padding-bottom: 6px;
+            padding-bottom: 8px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
             font-weight: 800;
             text-transform: uppercase;
@@ -403,11 +398,10 @@
             top: 0;
             background: #030712;
             font-size: 11px;
-            z-index: 5;
         }
 
         td {
-            padding: 8px 4px;
+            padding: 10px 4px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-weight: 700;
         }
@@ -416,7 +410,7 @@
             color: #4ade80;
             font-weight: 900;
             background: rgba(74, 222, 128, 0.18);
-            padding: 2px 8px;
+            padding: 3px 10px;
             border-radius: 6px;
             display: inline-block;
             border: 1px solid rgba(74, 222, 128, 0.4);
@@ -426,7 +420,7 @@
             color: #f87171;
             font-weight: 900;
             background: rgba(248, 113, 113, 0.18);
-            padding: 2px 8px;
+            padding: 3px 10px;
             border-radius: 6px;
             display: inline-block;
             border: 1px solid rgba(248, 113, 113, 0.4);
@@ -441,7 +435,7 @@
 
         /* --- BOTTOM NAVIGATION BAR --- */
         .bottom-nav {
-            height: 56px;
+            height: 52px;
             background: rgba(3, 7, 18, 0.98);
             border-top: 2px solid rgba(52, 211, 153, 0.3);
             display: flex;
@@ -563,7 +557,7 @@
         <!-- App Header -->
         <div class="app-header">
             <div class="app-header-title">RX SIGNAL HACK</div>
-            <a href="https://t.me/RS_GAMING_RAKIB_OWNER" target="_blank" class="telegram-btn" title="Join Telegram Channel">
+            <a href="https://t.me/+sGPCNIX4HA44Mjk9" target="_blank" class="telegram-btn" title="Join Telegram Channel">
                 <i class="fab fa-telegram-plane"></i>
             </a>
         </div>
@@ -626,7 +620,7 @@
 
             <!-- Market Tab Pane -->
             <div id="market-pane" class="tab-pane hidden">
-                <iframe src="https://hgnice.cc/#/login" class="market-iframe-wrapper"></iframe>
+                <iframe src="https://dkwin9.com/#/register?invitationCode=55761163536" class="market-iframe-wrapper"></iframe>
             </div>
         </div>
 
@@ -1040,4 +1034,3 @@
     </script>
 </body>
 </html>
-
