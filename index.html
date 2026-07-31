@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>RX SIGNAL HACK - PRO</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>RX SIGNAL HACK - MINI PRO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Firebase SDK Scripts -->
@@ -27,705 +27,342 @@
             overflow: hidden;
         }
 
-        @keyframes borderRainbow {
-            0% { border-color: #10b981; box-shadow: 0 0 25px rgba(16, 185, 129, 0.9); }
-            33% { border-color: #3b82f6; box-shadow: 0 0 25px rgba(59, 130, 246, 0.9); }
-            66% { border-color: #ec4899; box-shadow: 0 0 25px rgba(236, 72, 153, 0.9); }
-            100% { border-color: #10b981; box-shadow: 0 0 25px rgba(16, 185, 129, 0.9); }
+        @keyframes premiumGlow {
+            0% { border-color: #00ffcc; box-shadow: 0 0 25px rgba(0, 255, 204, 0.7), inset 0 0 15px rgba(0, 255, 204, 0.3); }
+            33% { border-color: #7000ff; box-shadow: 0 0 25px rgba(112, 0, 255, 0.7), inset 0 0 15px rgba(112, 0, 255, 0.3); }
+            66% { border-color: #ff007f; box-shadow: 0 0 25px rgba(255, 0, 127, 0.7), inset 0 0 15px rgba(255, 0, 127, 0.3); }
+            100% { border-color: #00ffcc; box-shadow: 0 0 25px rgba(0, 255, 204, 0.7), inset 0 0 15px rgba(0, 255, 204, 0.3); }
         }
 
-        .app-container {
-            width: 100vw;
-            height: 100vh;
-            background: #050b14;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #splash-screen {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #064e3b 0%, #020617 100%);
-            z-index: 7000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            transition: opacity 0.5s ease;
-        }
-
-        .splash-logo {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #34d399;
-            box-shadow: 0 0 35px rgba(52, 211, 153, 0.8);
-            margin-bottom: 20px;
-            animation: pulseLogo 1.5s infinite ease-in-out;
-        }
-
-        @keyframes pulseLogo {
-            0% { transform: scale(0.92); box-shadow: 0 0 20px rgba(52, 211, 153, 0.5); }
-            50% { transform: scale(1.08); box-shadow: 0 0 45px rgba(52, 211, 153, 0.9); }
-            100% { transform: scale(0.92); box-shadow: 0 0 20px rgba(52, 211, 153, 0.5); }
-        }
-
-        .splash-title {
-            font-size: 26px;
-            font-weight: 900;
-            color: #34d399;
-            letter-spacing: 3px;
-            text-align: center;
-            text-shadow: 0 0 20px rgba(52, 211, 153, 0.7);
-        }
-
+        /* Login Screen Style with Video Background & Fallback Gradient */
         #login-screen {
-            position: absolute;
+            position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #064e3b 0%, #020617 100%);
-            z-index: 5000;
-            display: none;
+            z-index: 99999;
+            display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            overflow-y: auto;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
         }
 
-        .login-card {
-            width: 100%;
-            max-width: 400px;
-            background: rgba(6, 78, 59, 0.3);
-            backdrop-filter: blur(25px);
-            border: 3px solid;
-            animation: borderRainbow 4s infinite linear;
-            border-radius: 28px;
-            padding: 45px 28px 35px 28px;
-            text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.85);
-            position: relative;
-            margin: 80px auto 40px auto; 
-        }
-
-        .login-card-logo {
-            width: 95px;
-            height: 95px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #34d399;
-            box-shadow: 0 0 35px rgba(52, 211, 153, 0.9);
+        #login-bg-video {
             position: absolute;
-            top: -75px; 
-            left: 50%;
-            transform: translateX(-50%);
-            animation: pulseLogo 2s infinite ease-in-out;
-            background: #020617;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        .login-card h2 {
-            font-size: 24px;
-            font-weight: 900;
-            color: #34d399;
-            margin-top: 15px;
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-        }
-
-        .login-card p {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+        /* Fully Transparent, Blurry Minimalist Login Card */
+        .login-card {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 320px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
         .login-input {
             width: 100%;
-            padding: 15px 20px;
-            background: rgba(2, 6, 23, 0.9);
-            border: 2px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
             color: #fff;
-            font-size: 16px;
+            font-size: 15px;
             text-align: center;
-            margin-bottom: 18px;
+            margin-bottom: 12px;
             outline: none;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
-        .login-input:focus {
-            border-color: #10b981;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        .login-input::placeholder {
+            color: rgba(255, 255, 255, 0.35);
         }
 
+        /* Transparent Glassmorphism Login Button */
         .login-btn {
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #059669, #10b981);
-            border: none;
-            border-radius: 16px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
             color: white;
             font-weight: 800;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.5);
             letter-spacing: 1.5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .login-btn:active {
+            transform: scale(0.97);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .error-msg {
             color: #f87171;
-            font-size: 13px;
-            margin-top: 12px;
+            font-size: 11px;
+            margin-top: 10px;
             display: none;
             font-weight: 700;
         }
 
-        .app-header {
-            background: linear-gradient(135deg, #064e3b, #047857);
-            padding: 10px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid rgba(52, 211, 153, 0.3);
-            flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .header-logo {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #34d399;
-            box-shadow: 0 0 10px rgba(52, 211, 153, 0.7);
-        }
-
-        .app-header-title {
-            font-size: 15px;
-            font-weight: 900;
-            letter-spacing: 1.5px;
-            color: #34d399;
-            text-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
-        }
-
-        .telegram-btn {
-            background: #229ed9;
-            color: white;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            font-size: 16px;
-            box-shadow: 0 0 10px rgba(34, 158, 217, 0.6);
-            transition: transform 0.2s;
-        }
-
-        .telegram-btn:active {
-            transform: scale(0.9);
-        }
-
-        .page-content {
-            flex-grow: 1;
+        /* Main View Website Container */
+        .app-container {
+            width: 100vw;
+            height: 100vh;
             position: relative;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
 
-        .tab-pane {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: flex;
-            flex-direction: column;
-            background: #050b14;
-            transition: opacity 0.2s ease;
-        }
-
-        .tab-pane.hidden {
-            opacity: 0;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .tab-pane.active {
-            opacity: 1;
-            pointer-events: auto;
-            z-index: 2;
-        }
-
-        .dashboard {
-            padding: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-
-        .timer-box {
-            background: rgba(15, 23, 42, 0.9);
-            border: 2px solid;
-            animation: borderRainbow 4s infinite linear;
-            border-radius: 14px;
-            padding: 12px 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .timer-info span {
-            display: block;
-            font-size: 10px;
-            color: #94a3b8;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .timer-info strong {
-            font-size: 15px;
-            color: #f8fafc;
-            font-weight: 900;
-        }
-
-        .timer-display {
-            font-size: 18px;
-            font-weight: 900;
-            color: #f59e0b;
-            background: rgba(245, 158, 11, 0.12);
-            padding: 6px 14px;
-            border-radius: 10px;
-            border: 1.5px solid rgba(245, 158, 11, 0.4);
-            box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
-        }
-
-        .signal-container {
-            background: rgba(10, 15, 28, 0.95);
-            border: 2px solid;
-            animation: borderRainbow 4s infinite linear;
-            border-radius: 16px;
-            padding: 14px;
-            text-align: center;
-        }
-
-        .period-circle-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .period-circle {
-            background: linear-gradient(135deg, #059669, #047857);
-            color: #fff;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 6px 18px;
-            border-radius: 20px;
-            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
-            border: 1.5px solid rgba(52, 211, 153, 0.4);
-            letter-spacing: 1px;
-        }
-
-        .signal-boxes-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-        }
-
-        .sig-box {
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(6, 13, 26, 0.95));
-            border: 2px solid;
-            animation: borderRainbow 4s infinite linear;
-            border-radius: 14px;
-            padding: 18px 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 0 12px rgba(16, 185, 129, 0.15);
-        }
-
-        .sig-label {
-            font-size: 11px;
-            color: #94a3b8;
-            text-transform: uppercase;
-            font-weight: 800;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-        }
-
-        .sig-value {
-            font-size: 20px;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-        }
-
-        .accuracy-badge {
-            margin-top: 8px;
-            font-size: 11px;
-            font-weight: 800;
-            color: #38bdf8;
-            background: rgba(56, 189, 248, 0.1);
-            padding: 4px 10px;
-            border-radius: 8px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            display: inline-block;
-            letter-spacing: 1px;
-        }
-
-        .history-section {
-            background: rgba(3, 7, 18, 0.98);
-            border-top: 2px solid rgba(16, 185, 129, 0.3);
-            padding: 12px 14px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .history-title {
-            font-size: 12px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            color: #34d399;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .history-title::before {
-            content: '';
-            display: inline-block;
-            width: 7px; height: 7px;
-            background: #10b981;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #10b981;
-        }
-
-        .table-container {
-            flex-grow: 1;
-            overflow-y: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: center;
-            font-size: 12px;
-        }
-
-        th {
-            color: #94a3b8;
-            padding-bottom: 8px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            font-weight: 800;
-            text-transform: uppercase;
-            position: sticky;
-            top: 0;
-            background: #030712;
-            font-size: 11px;
-        }
-
-        td {
-            padding: 10px 4px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-weight: 700;
-        }
-
-        .status-win {
-            color: #4ade80;
-            font-weight: 900;
-            background: rgba(74, 222, 128, 0.18);
-            padding: 3px 10px;
-            border-radius: 6px;
-            display: inline-block;
-            border: 1px solid rgba(74, 222, 128, 0.4);
-        }
-
-        .status-loss {
-            color: #f87171;
-            font-weight: 900;
-            background: rgba(248, 113, 113, 0.18);
-            padding: 3px 10px;
-            border-radius: 6px;
-            display: inline-block;
-            border: 1px solid rgba(248, 113, 113, 0.4);
-        }
-
-        .market-container {
+        .market-iframe {
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            background: #020617;
-        }
-
-        .market-iframe-wrapper {
-            width: 100%;
-            flex-grow: 1;
             border: none;
             background: #020617;
         }
 
-        .market-fallback {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .market-fallback h3 {
-            color: #34d399;
-            margin-bottom: 10px;
-        }
-
-        .market-fallback p {
-            color: #94a3b8;
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-
-        .market-fallback-btn {
-            padding: 12px 24px;
-            background: #059669;
-            color: white;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 800;
-        }
-
-        .bottom-nav {
-            height: 52px;
-            background: rgba(3, 7, 18, 0.98);
-            border-top: 2px solid rgba(52, 211, 153, 0.3);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-shrink: 0;
-            z-index: 1000;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
-        }
-
-        .nav-item {
-            flex: 1;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            color: #64748b;
-            text-decoration: none;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: color 0.2s, background 0.2s;
-            gap: 6px;
-        }
-
-        .nav-item i {
-            font-size: 15px;
-        }
-
-        .nav-item.active {
-            color: #34d399;
-            background: rgba(52, 211, 153, 0.1);
-            text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
-        }
-
-        .modal {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(2, 6, 23, 0.88);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 8000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.active { opacity: 1; pointer-events: auto; }
-
-        .modal-content {
-            padding: 28px 20px;
+        /* Direct Floating Video Panel with Premium Look */
+        #floating-panel {
+            position: absolute;
+            top: 50px;
+            left: 15px;
+            width: 240px;
+            height: 480px;
+            background: #000;
+            border: 2px solid #00ffcc;
+            animation: premiumGlow 4s infinite linear;
             border-radius: 20px;
-            text-align: center;
-            max-width: 280px;
-            width: 90%;
-            animation: bounceModal 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.95);
+            z-index: 9999;
+            user-select: none;
+            touch-action: none;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
         }
 
-        @keyframes bounceModal {
-            0% { transform: scale(0.6); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        /* Minimized State */
+        #floating-panel.minimized {
+            width: 55px !important;
+            height: 55px !important;
+            border-radius: 50% !important;
+            overflow: hidden;
+            cursor: pointer;
         }
 
-        .win-box {
-            background: linear-gradient(135deg, #059669, #047857);
-            border: 2px solid #34d399;
-            box-shadow: 0 0 35px rgba(52, 211, 153, 0.6);
+        #floating-panel.minimized .panel-header,
+        #floating-panel.minimized .panel-body,
+        #floating-panel.minimized #panel-bg-video {
+            display: none !important;
         }
 
-        .loss-box {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            border: 2px solid #f87171;
-            box-shadow: 0 0 35px rgba(248, 113, 113, 0.6);
-        }
-
-        .modal-content h2 {
-            font-size: 24px;
+        #floating-panel.minimized::after {
+            content: "RX";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #00ffcc, #7000ff);
             color: #fff;
-            margin-bottom: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-weight: 900;
+            font-size: 16px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        .modal-content p {
-            font-size: 12px;
-            color: #f1f5f9;
-            font-weight: 700;
+        /* Crystal Clear Background Video */
+        #panel-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 1;
         }
 
-        ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-thumb { background: rgba(16, 185, 129, 0.4); border-radius: 10px; }
+        .panel-header {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(0, 255, 204, 0.85), rgba(112, 0, 255, 0.85));
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            color: #fff;
+            cursor: move;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        }
+
+        /* Transparent Panel Body */
+        .panel-body {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+        }
+
+        /* Floating Timer (High Quality Neon Style) */
+        .floating-timer-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        .floating-timer {
+            font-size: 20px;
+            font-weight: 800;
+            color: #00ffcc;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 2px 4px rgba(0,0,0,0.9);
+            letter-spacing: 2px;
+        }
+
+        /* Floating Period Number */
+        .floating-period-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        .floating-period-val {
+            font-size: 16px;
+            font-weight: 900;
+            color: #38bdf8;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.8), 0 2px 4px rgba(0,0,0,0.9);
+            letter-spacing: 2px;
+        }
+
+        /* Signal Grid Layout - High Quality Glassmorphism Box with Neon Glow */
+        .signal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sig-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
+            padding: 10px 5px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 10px rgba(255,255,255,0.05);
+        }
+
+        .sig-box strong {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px currentColor, 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        /* Premium Sleek Hide Button */
+        .hide-btn {
+            width: 90px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 6px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 10px;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .hide-btn:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body>
 
-    <div id="splash-screen">
-        <img src="https://i.postimg.cc/bwnYg1gt/IMG-20260720-220254-004.jpg" alt="RX SIGNAL HACK Logo" class="splash-logo">
-        <div class="splash-title">RX SIGNAL HACK PRO</div>
-    </div>
-
+    <!-- Login Screen with Video Background -->
     <div id="login-screen">
+        <video id="login-bg-video" autoplay muted loop playsinline webkit-playsinline>
+            <source src="https://files.catbox.moe/5qf9cc.mp4" type="video/mp4">
+        </video>
         <div class="login-card">
-            <img src="https://i.postimg.cc/bwnYg1gt/IMG-20260720-220254-004.jpg" alt="Logo" class="login-card-logo">
-            <h2>RX SIGNAL HACK</h2>
-            <p>Secure Access</p>
-            <input type="password" id="pass-input" class="login-input" placeholder="••••••••">
-            <button class="login-btn" onclick="verifyPassword()">UNLOCK SYSTEM</button>
-            <div id="error-msg" class="error-msg">❌ Invalid or Expired Password!</div>
+            <input type="password" id="pass-input" class="login-input" placeholder="PASSCODE">
+            <button class="login-btn" onclick="verifyPassword()">LOGIN</button>
+            <div id="error-msg" class="error-msg">❌ Invalid or Expired Passcode!</div>
         </div>
     </div>
 
+    <!-- Main View with Website & Floating Panel -->
     <div class="app-container">
-        <div class="app-header">
-            <div class="header-brand">
-                <img src="https://i.postimg.cc/bwnYg1gt/IMG-20260720-220254-004.jpg" alt="Logo" class="header-logo">
-                <div class="app-header-title">RX SIGNAL HACK PRO</div>
+        <!-- Website iframe -->
+        <iframe src="https://dkwin9.com/#/register?invitationCode=55761163536" class="market-iframe"></iframe>
+
+        <!-- Direct Floating Signal Panel with Video Background -->
+        <div id="floating-panel" onclick="handlePanelClick(event)">
+            <!-- Panel Background Video -->
+            <video id="panel-bg-video" autoplay muted loop playsinline webkit-playsinline>
+                <source src="https://files.catbox.moe/3upwx8.mp4" type="video/mp4">
+            </video>
+
+            <div class="panel-header">
+                <span><i class="fas fa-bolt"></i> RX PRO HACK</span>
+                <i class="fas fa-arrows-alt" style="font-size: 10px; opacity: 0.9;"></i>
             </div>
-            <a href="https://t.me/FFCHANNELBD" target="_blank" class="telegram-btn" title="Join Telegram Channel">
-                <i class="fab fa-telegram-plane"></i>
-            </a>
-        </div>
 
-        <div class="page-content">
-            <div id="signal-pane" class="tab-pane active">
-                <div class="dashboard">
-                    <div class="timer-box">
-                        <div class="timer-info">
-                            <span>Active Period</span>
-                            <strong id="current-period">Loading...</strong>
-                        </div>
-                        <div id="timer" class="timer-display">00:00</div>
+            <div class="panel-body">
+                <!-- 1. Floating Timer at Top -->
+                <div class="floating-timer-container">
+                    <div id="cur-timer" class="floating-timer">00:00</div>
+                </div>
+
+                <!-- 2. Floating Period Number -->
+                <div class="floating-period-container">
+                    <div id="cur-period" class="floating-period-val">-----</div>
+                </div>
+
+                <!-- 3. Signals Layout (Pure Value, High Quality Neon Colors) -->
+                <div class="signal-grid">
+                    <div class="sig-box">
+                        <strong id="sig-bs" style="color: #00ffcc;">--</strong>
                     </div>
-
-                    <div class="signal-container">
-                        <div class="period-circle-wrapper">
-                            <div id="signal-period-badge" class="period-circle">TARGET: ---</div>
-                        </div>
-                        <div class="signal-boxes-grid">
-                            <div class="sig-box">
-                                <span class="sig-label">B / S</span>
-                                <span id="sig-bs" class="sig-value" style="color: #60a5fa;">--</span>
-                            </div>
-                            <div class="sig-box">
-                                <span class="sig-label">Number</span>
-                                <span id="sig-num" class="sig-value" style="color: #facc15;">--</span>
-                            </div>
-                            <div class="sig-box">
-                                <span class="sig-label">Color</span>
-                                <span id="sig-color" class="sig-value" style="color: #4ade80;">--</span>
-                            </div>
-                        </div>
-                        <div id="accuracy-indicator" class="accuracy-badge">SYSTEM ACCURACY: CALCULATING...</div>
+                    <div class="sig-box">
+                        <strong id="sig-num" style="color: #ff007f;">--</strong>
+                    </div>
+                    <div class="sig-box">
+                        <strong id="sig-color" style="color: #38bdf8;">--</strong>
                     </div>
                 </div>
 
-                <div class="history-section">
-                    <div class="history-title">Live Result History</div>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Period</th>
-                                    <th>Num</th>
-                                    <th>B/S</th>
-                                    <th>Color</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="history-table-body"></tbody>
-                        </table>
-                    </div>
-                </div>
+                <!-- Minimalist Hide Button -->
+                <button class="hide-btn" onclick="toggleMinimize(event)">HIDE</button>
             </div>
-
-            <div id="market-pane" class="tab-pane hidden">
-                <div class="market-container">
-                    <iframe id="market-iframe" src="https://dkwin9.com/#/register?invitationCode=55761163536" class="market-iframe-wrapper"></iframe>
-                    <div id="market-fallback" class="market-fallback">
-                        <h3>Connection Restricted</h3>
-                        <p>Direct platform view is blocked by browser policies.</p>
-                        <a href="https://dkwin9.com/#/register?invitationCode=55761163536" target="_blank" class="market-fallback-btn">OPEN IN NEW TAB</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bottom-nav">
-            <div id="nav-signal" class="nav-item active" onclick="switchTab('signal')">
-                <i class="fas fa-signal"></i>
-                <span>SIGNAL</span>
-            </div>
-            <div id="nav-market" class="nav-item" onclick="switchTab('market')">
-                <i class="fas fa-chart-line"></i>
-                <span>MARKET</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="win-modal" class="modal">
-        <div class="modal-content win-box">
-            <h2>🎉 WIN! 🎉</h2>
-            <p>Signal Matched Perfectly!</p>
-        </div>
-    </div>
-
-    <div id="loss-modal" class="modal">
-        <div class="modal-content loss-box">
-            <h2>🛡️ RECOVERY ACTIVE 🛡️</h2>
-            <p>Smart Auto-Calibrating Next Round!</p>
         </div>
     </div>
 
@@ -735,6 +372,45 @@
         };
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
+
+        // ChatGPT Provided Debugging Code Added Here
+        const v = document.getElementById("login-bg-video");
+        if (v) {
+            v.addEventListener("loadeddata", () => {
+                console.log("Video Loaded Successfully");
+            });
+            v.addEventListener("error", (e) => {
+                console.log("Video Error Occurred:", e);
+            });
+        }
+
+        // Advanced Video Autoplay Force Handler for Mobile & Desktop
+        function forcePlayVideos() {
+            document.querySelectorAll('video').forEach(video => {
+                video.muted = true;
+                let playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        document.addEventListener('pointerdown', () => {
+                            video.play();
+                        }, { once: true });
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            forcePlayVideos();
+            checkAuthSession();
+        });
+
+        window.addEventListener('touchstart', () => {
+            document.querySelectorAll('video').forEach(v => { if (v.paused) v.play(); });
+        }, { once: true });
+
+        window.addEventListener('click', () => {
+            document.querySelectorAll('video').forEach(v => { if (v.paused) v.play(); });
+        }, { once: true });
 
         async function hashString(message) {
             if (window.crypto && window.crypto.subtle) {
@@ -748,109 +424,51 @@
             return message;
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const splash = document.getElementById("splash-screen");
-                splash.style.opacity = '0';
-                setTimeout(() => {
-                    splash.style.display = 'none';
-                    checkAuthentication();
-                }, 400);
-            }, 2200);
+        function checkAuthSession() {
+            const auth = sessionStorage.getItem("rx_auth");
+            const key = sessionStorage.getItem("rx_auth_key");
+            const time = sessionStorage.getItem("rx_token_time");
 
-            setInterval(checkAuthentication, 30000);
-
-            const iframe = document.getElementById('market-iframe');
-            const fallback = document.getElementById('market-fallback');
-
-            setTimeout(() => {
-                try {
-                    if (!iframe.contentWindow || iframe.src === "") {
-                        throw new Error();
+            if (auth === "true" && key && time && (Date.now() - parseInt(time) < 14400000)) {
+                db.ref('passcodes/' + key).once('value').then(snap => {
+                    if (snap.val()) {
+                        document.getElementById("login-screen").style.display = "none";
+                        initHackEngine();
+                    } else {
+                        sessionStorage.clear();
                     }
-                } catch (e) {
-                    iframe.style.display = 'none';
-                    fallback.style.display = 'flex';
-                }
-            }, 4000);
-        });
-
-        function checkAuthentication() {
-            const authStatus = sessionStorage.getItem("rx_auth");
-            const authKey = sessionStorage.getItem("rx_auth_key");
-            const tokenTime = sessionStorage.getItem("rx_token_time");
-            
-            if (authStatus !== "true" || !authKey || !tokenTime || (Date.now() - parseInt(tokenTime) > 14400000)) {
-                logoutUser("❌ Session Expired. Please login again.");
-                return;
+                });
             }
-
-            db.ref('passcodes/' + authKey).once('value').then((snapshot) => {
-                const passData = snapshot.val();
-                if (!passData) {
-                    logoutUser("❌ Passcode has been deleted by Admin!");
-                    return;
-                }
-
-                const expiryTime = passData.createdAt + (passData.durationMinutes * 60 * 1000);
-                if (Date.now() >= expiryTime) {
-                    db.ref('passcodes/' + authKey).remove();
-                    logoutUser("❌ Passcode validity time has expired!");
-                    return;
-                }
-
-                document.getElementById("login-screen").style.display = "none";
-                if (typeof initAppOnce === 'undefined' || !initAppOnce) {
-                    window.initAppOnce = true;
-                    initApp();
-                }
-            }).catch(() => {});
-        }
-
-        function logoutUser(msg) {
-            sessionStorage.removeItem("rx_auth");
-            sessionStorage.removeItem("rx_auth_key");
-            sessionStorage.removeItem("rx_token_time");
-            document.getElementById("login-screen").style.display = "flex";
-            const err = document.getElementById("error-msg");
-            err.innerText = msg;
-            err.style.display = "block";
         }
 
         async function verifyPassword() {
-            const inputVal = document.getElementById("pass-input").value.trim();
+            const val = document.getElementById("pass-input").value.trim();
             const err = document.getElementById("error-msg");
-
-            if (!inputVal) {
-                err.innerText = "❌ Please enter a password!";
+            if (!val) {
+                err.innerText = "❌ Enter passcode!";
                 err.style.display = "block";
                 return;
             }
 
             try {
-                const hashedInput = await hashString(inputVal);
-                const snapshot = await db.ref('passcodes').once('value');
-                const passcodesData = snapshot.val();
+                const hashed = await hashString(val);
+                const snap = await db.ref('passcodes').once('value');
+                const data = snap.val();
 
-                if (!passcodesData) {
-                    err.innerText = "❌ No active passcodes found in database!";
+                if (!data) {
+                    err.innerText = "❌ No passcodes found!";
                     err.style.display = "block";
                     return;
                 }
 
                 let matchedKey = null;
-                const currentTime = Date.now();
+                const now = Date.now();
 
-                Object.keys(passcodesData).forEach((key) => {
-                    const item = passcodesData[key];
-                    const expiryTime = item.createdAt + (item.durationMinutes * 60 * 1000);
-
-                    if (item.password === hashedInput || item.password === inputVal) {
-                        if (currentTime < expiryTime) {
-                            matchedKey = key;
-                        } else {
-                            db.ref('passcodes/' + key).remove();
-                        }
+                Object.keys(data).forEach(k => {
+                    const item = data[k];
+                    const exp = item.createdAt + (item.durationMinutes * 60 * 1000);
+                    if ((item.password === hashed || item.password === val) && now < exp) {
+                        matchedKey = k;
                     }
                 });
 
@@ -858,239 +476,123 @@
                     sessionStorage.setItem("rx_auth", "true");
                     sessionStorage.setItem("rx_auth_key", matchedKey);
                     sessionStorage.setItem("rx_token_time", Date.now().toString());
-
                     document.getElementById("login-screen").style.display = "none";
-                    document.getElementById("pass-input").value = "";
-                    err.style.display = "none";
-                    
-                    if (typeof initAppOnce === 'undefined' || !initAppOnce) {
-                        window.initAppOnce = true;
-                        initApp();
-                    }
+                    initHackEngine();
                 } else {
-                    err.innerText = "❌ Invalid or Expired Password!";
+                    err.innerText = "❌ Invalid or Expired Passcode!";
                     err.style.display = "block";
-                    document.getElementById("pass-input").value = "";
                 }
             } catch (e) {
-                err.innerText = "❌ Connection Error! Check Internet.";
+                err.innerText = "❌ Network error!";
                 err.style.display = "block";
             }
         }
 
-        document.getElementById("pass-input").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                verifyPassword();
-            }
-        });
+        function toggleMinimize(event) {
+            event.stopPropagation();
+            const panel = document.getElementById("floating-panel");
+            panel.classList.toggle("minimized");
+        }
 
-        function switchTab(tabName) {
-            const signalPane = document.getElementById("signal-pane");
-            const marketPane = document.getElementById("market-pane");
-            const navSignal = document.getElementById("nav-signal");
-            const navMarket = document.getElementById("nav-market");
-
-            if (tabName === 'signal') {
-                signalPane.classList.remove('hidden');
-                signalPane.classList.add('active');
-                marketPane.classList.remove('active');
-                marketPane.classList.add('hidden');
-
-                navSignal.classList.add('active');
-                navMarket.classList.remove('active');
-            } else {
-                marketPane.classList.remove('hidden');
-                marketPane.classList.add('active');
-                signalPane.classList.remove('active');
-                signalPane.classList.add('hidden');
-
-                navMarket.classList.add('active');
-                navSignal.classList.remove('active');
+        function handlePanelClick(event) {
+            const panel = document.getElementById("floating-panel");
+            if (panel.classList.contains("minimized")) {
+                panel.classList.remove("minimized");
             }
         }
 
-        function initApp() {
-            const API_URL = "https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json";
+        const panel = document.getElementById("floating-panel");
+        let isDragging = false, startX, startY, initialX, initialY, hasMoved = false;
+
+        panel.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+
+        panel.addEventListener('touchstart', dragStart, {passive: true});
+        document.addEventListener('touchmove', drag, {passive: true});
+        document.addEventListener('touchend', dragEnd);
+
+        function dragStart(e) {
+            isDragging = true;
+            hasMoved = false;
+            startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+            startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+            initialX = panel.offsetLeft;
+            initialY = panel.offsetTop;
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            const currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            const currentY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
             
-            let lastGeneratedSignal = null;
-            let lastCheckedPeriod = null;
-            let previousSignalsStore = JSON.parse(localStorage.getItem('rx_prev_signals')) || {};
+            let dx = currentX - startX;
+            let dy = currentY - startY;
 
-            async function fetchGameData() {
-                try {
-                    const response = await fetch(API_URL, { cache: "no-store" });
-                    const data = await response.json();
-
-                    if (data && data.data && data.data.list && data.data.list.length > 0) {
-                        const historyList = data.data.list;
-                        const latestResult = historyList[0];
-                        
-                        checkWinLossCondition(latestResult);
-                        updateHistoryTable(historyList);
-                        updateNextPeriodAndSignal(latestResult.issueNumber, historyList);
-                    }
-                } catch (error) {}
+            if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+                hasMoved = true;
             }
 
-            // আপডেটেড স্মার্ট উইন লজিক ইঞ্জিন: লসের ধারা কমানোর জন্য শক্তিশালী ট্রেন্ড ও রিকভারি ফিল্টার
-            function getSmartPrediction(historySizes, historyList) {
-                if (historySizes.length < 6) {
-                    return "BIG";
-                }
+            panel.style.left = `${initialX + dx}px`;
+            panel.style.top = `${initialY + dy}px`;
+        }
 
-                // সাম্প্রতিক লস স্ট্রিক চেক করার জন্য বিগত সিগন্যালগুলোর স্টেট যাচাই করা
-                let keys = Object.keys(previousSignalsStore).sort();
-                let recentLossCount = 0;
-                for (let i = keys.length - 1; i >= Math.max(0, keys.length - 3); i--) {
-                    let pKey = keys[i];
-                    let matchedRes = historyList.find(item => item.issueNumber === pKey);
-                    if (matchedRes) {
-                        let resSize = parseInt(matchedRes.number) >= 5 ? "BIG" : "SMALL";
-                        if (previousSignalsStore[pKey].bs !== resSize) {
-                            recentLossCount++;
-                        } else {
-                            break; // উইন পেলে স্ট্রিক ভেঙে গেছে
+        function dragEnd() {
+            isDragging = false;
+        }
+
+        function initHackEngine() {
+            const API_URL = "https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json";
+            let lastPeriod = null;
+
+            async function fetchSignal() {
+                try {
+                    const res = await fetch(API_URL, { cache: "no-store" });
+                    const json = await res.json();
+                    if (json && json.data && json.data.list && json.data.list.length > 0) {
+                        const history = json.data.list;
+                        const latestIssue = history[0].issueNumber;
+                        const nextIssue = (BigInt(latestIssue) + 1n).toString();
+
+                        if (lastPeriod !== nextIssue) {
+                            lastPeriod = nextIssue;
+                            document.getElementById("cur-period").innerText = nextIssue;
+
+                            let recentNums = history.slice(0, 10).map(item => parseInt(item.number));
+                            let sum = recentNums.reduce((a, b) => a + b, 0);
+                            let trendFactor = (sum + parseInt(nextIssue.slice(-2))) % 10;
+                            
+                            let predictionSize = trendFactor >= 5 ? "BIG" : "SMALL";
+                            let targetNum = predictionSize === "BIG" ? [6, 7, 8, 9, 5][trendFactor % 5] : [1, 2, 3, 4, 0][trendFactor % 5];
+                            let targetColor = targetNum % 2 === 0 ? "RED" : "GREEN";
+
+                            document.getElementById("sig-bs").innerText = predictionSize;
+                            document.getElementById("sig-bs").style.color = predictionSize === 'BIG' ? '#00ffcc' : '#ff007f';
+                            
+                            document.getElementById("sig-num").innerText = targetNum;
+                            document.getElementById("sig-num").style.color = '#ffcc00';
+                            
+                            const colorEl = document.getElementById("sig-color");
+                            colorEl.innerText = targetColor;
+                            colorEl.style.color = targetColor === 'RED' ? '#ff416c' : '#00ffcc';
                         }
                     }
-                }
-
-                let lastActual = historySizes[historySizes.length - 1];
-
-                // যদি পরপর ১ বা ২টি লস হয়ে যায়, তবে রিকভারি নিশ্চিত করতে ট্রেন্ড রিভার্স বা স্ট্রং প্যাটার্ন ফোরস করা হবে
-                if (recentLossCount >= 1) {
-                    return lastActual; // মার্কেটের রিয়েল মুভমেন্ট ফলো করে উইন ব্যাক করানো
-                }
-
-                let recent = historySizes.slice(-5);
-                let bigs = recent.filter(v => v === "BIG").length;
-
-                // যদি মার্কেটে এক টানা একই ফলাফল আসে, তবে ট্রেন্ড ব্রেক এড়াতে স্মার্ট মিরর লজিক কাজ করবে
-                if (bigs >= 4) return "SMALL";
-                if (bigs <= 1) return "BIG";
-
-                return lastActual;
-            }
-
-            function generateAdvancedSignal(period, historyList) {
-                let historySizes = historyList.map(item => {
-                    let num = parseInt(item.number);
-                    return num >= 5 ? "BIG" : "SMALL";
-                }).reverse();
-
-                let predSize = getSmartPrediction(historySizes, historyList);
-
-                // উইনিং রেট হাই (৯২% থেকে ৯৮.৫%) রাখার জন্য একিউরেসি ক্যালকুলেশন অপ্টিমাইজ করা হয়েছে
-                let finalAccuracy = (Math.floor(Math.random() * 6) + 93.4).toFixed(1);
-
-                let targetNum = predSize === "BIG" ? [6, 7, 8, 9, 5][Math.floor(Math.random()*5)] : [1, 2, 3, 4, 0][Math.floor(Math.random()*5)];
-
-                return {
-                    period: period,
-                    bs: predSize,
-                    num: targetNum,
-                    color: targetNum % 2 === 0 ? "RED" : "GREEN",
-                    accuracy: finalAccuracy
-                };
-            }
-
-            function updateNextPeriodAndSignal(latestIssue, historyList) {
-                let nextIssue = (BigInt(latestIssue) + 1n).toString();
-                document.getElementById("current-period").innerText = nextIssue;
-                document.getElementById("signal-period-badge").innerText = `TARGET PERIOD: ${nextIssue}`;
-
-                if (!lastGeneratedSignal || lastGeneratedSignal.period !== nextIssue) {
-                    const newSig = generateAdvancedSignal(nextIssue, historyList);
-                    lastGeneratedSignal = newSig;
-                    previousSignalsStore[nextIssue] = newSig;
-
-                    localStorage.setItem('rx_prev_signals', JSON.stringify(previousSignalsStore));
-
-                    document.getElementById("sig-bs").innerText = newSig.bs;
-                    document.getElementById("sig-bs").style.color = newSig.bs === 'BIG' ? '#60a5fa' : '#c084fc';
-                    
-                    document.getElementById("sig-num").innerText = newSig.num;
-                    
-                    const colorEl = document.getElementById("sig-color");
-                    colorEl.innerText = newSig.color;
-                    colorEl.style.color = newSig.color === 'RED' ? '#f87171' : '#4ade80';
-
-                    const accuracyEl = document.getElementById("accuracy-indicator");
-                    accuracyEl.innerText = `SYSTEM ACCURACY: ${newSig.accuracy}%`;
-                }
-            }
-
-            function updateHistoryTable(list) {
-                const tbody = document.getElementById("history-table-body");
-                let rowsHtml = "";
-
-                list.slice(0, 20).forEach((item) => {
-                    const num = parseInt(item.number);
-                    const bs = num >= 5 ? "BIG" : "SMALL";
-                    const colorName = (num % 2 === 0) ? "Red" : "Green";
-                    const colorClass = (num % 2 === 0) ? "#f87171" : "#4ade80";
-
-                    let statusHtml = "";
-                    const targetPeriod = item.issueNumber;
-                    const matchedSignal = previousSignalsStore[targetPeriod];
-                    
-                    if (matchedSignal) {
-                        const isWin = (matchedSignal.bs === bs);
-                        statusHtml = isWin ? `<span class="status-win">WIN</span>` : `<span class="status-loss">LOSS</span>`;
-                    } else {
-                        statusHtml = `<span style="color: #64748b;">-</span>`;
-                    }
-
-                    rowsHtml += `
-                        <tr>
-                            <td>${item.issueNumber.slice(-4)}</td>
-                            <td><strong>${num}</strong></td>
-                            <td><span style="color: ${bs === 'BIG' ? '#60a5fa' : '#c084fc'}">${bs}</span></td>
-                            <td><span style="color: ${colorClass}">${colorName}</span></td>
-                            <td>${statusHtml}</td>
-                        </tr>
-                    `;
-                });
-                tbody.innerHTML = rowsHtml;
-            }
-
-            function checkWinLossCondition(latestResult) {
-                const currentPeriod = latestResult.issueNumber;
-                const actualNum = parseInt(latestResult.number);
-                const actualBS = actualNum >= 5 ? "BIG" : "SMALL";
-
-                const targetSignal = previousSignalsStore[currentPeriod];
-
-                if (targetSignal && lastCheckedPeriod !== currentPeriod) {
-                    lastCheckedPeriod = currentPeriod;
-                    if (targetSignal.bs === actualBS) {
-                        showModal("win-modal");
-                    } else {
-                        showModal("loss-modal");
-                    }
-                }
-            }
-
-            function showModal(modalId) {
-                const modal = document.getElementById(modalId);
-                modal.classList.add("active");
-                setTimeout(() => {
-                    modal.classList.remove("active");
-                }, 3000);
+                } catch (e) {}
             }
 
             function runTimer() {
                 const sec = new Date().getSeconds();
-                const remainingSec = 59 - sec;
-                document.getElementById("timer").innerText = `00:${remainingSec < 10 ? '0' : ''}${remainingSec}`;
-                
-                if (sec === 0 || sec === 2 || sec === 5) {
-                    fetchGameData();
+                const rem = 59 - sec;
+                document.getElementById("cur-timer").innerText = `00:${rem < 10 ? '0' : ''}${rem}`;
+                if (sec === 0 || sec === 2) {
+                    fetchSignal();
                 }
             }
 
-            fetchGameData();
+            fetchSignal();
             setInterval(runTimer, 1000);
         }
     </script>
 </body>
 </html>
+
